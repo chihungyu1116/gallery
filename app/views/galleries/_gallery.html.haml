@@ -1,0 +1,10 @@
+%div{ class:'col-sm-4 col-md-3', :'data-wid' => "#{gallery[:id]}" }
+  .thumbnail
+    %a{ href:"#{gallery[:link_profile]}" }
+      = image_tag "#{gallery[:img]}"
+    .caption
+      %h3= gallery[:title]
+      %p ...
+      %p
+        %a{ href:"#{gallery[:link_facebook]}", class:"btn btn-primary", role:"button" } Like
+        %a{ href:"#{gallery[:link_twit]}", class:"btn btn-default", role:"button" } Twitt
