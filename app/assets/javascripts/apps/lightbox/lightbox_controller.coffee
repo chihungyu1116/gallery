@@ -1,22 +1,21 @@
-@App.module "GlobalApp.Lightbox", (Lightbox, App, Backbone, Marionette, $, _) ->
+@App.module "LightboxApp", (LightboxApp, App, Backbone, Marionette, $, _) ->
+  @startWithParent = false
 
-  Lightbox.Controller =
+  class LightboxApp.Controller extends Marionette.Controller
     defaults: {}
 
     getView: ->
-      new Lightbox.View()
+      new LightboxApp.View()
 
     openLightbox: (options) ->
       @view.open()
-      console.log 'open lightbox', options
       # disable scroll event
 
     closeLightbox: (options) ->
       @view.close()
-      console.log 'close lightbox', options
       # enable scroll event
 
-    watchVents: ->
+    watchEvents: ->
       App.vent.on "global:lightbox:open", @openLightbox.bind @
       App.vent.on "global:lightbox:close", @closeLightbox.bind @
 
@@ -25,4 +24,7 @@
         view: @getView()
       }
       @watchVents()
+
+  LightboxApp.on "start", ->
+    new LightboxApp.Controller()
       

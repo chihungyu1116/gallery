@@ -1,6 +1,7 @@
-@App.module "GlobalApp.Window", (Window, App, Backbone, Marionette, $, _) ->
+@App.module "WindowApp", (WindowApp, App, Backbone, Marionette, $, _) ->
+  @startWithParent = false
 
-  class Window.View extends Marionette.ItemView  
+  class WindowApp.View extends Marionette.ItemView  
     initialize: ->
       @ui =
         window: $(window)
@@ -13,12 +14,12 @@
 
     onScroll: ->
       if @isNearBottom()
-        Window.trigger "scroll:nearBottom"
+        WindowApp.trigger "scroll:nearBottom"
       if @isBottom()
-        Window.trigger "scroll:bottom"
+        WindowApp.trigger "scroll:bottom"
         
     onClick: (e) ->
-      Window.trigger "click", e
+      WindowApp.trigger "click", e
 
     isNearBottom: ->
       BOTTOM_OFFSET = 200
@@ -27,3 +28,4 @@
     isBottom: ->
       BOTTOM_OFFSET = 10
       @ui.window.scrollTop() > (@ui.document.height() - @ui.window.height() - BOTTOM_OFFSET)      
+    

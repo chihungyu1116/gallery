@@ -1,6 +1,7 @@
-@App.module "GalleryApp.Show", (Show, App, Backbone, Marionette, $, _) ->
+@App.module "GalleryApp", (GalleryApp, App, Backbone, Marionette, $, _) ->
 
-  class Show.View extends Marionette.ItemView
+  class GalleryApp.View extends Marionette.ItemView
+
     initialize: ->
       @ui =
         main: $("#main-region")
@@ -14,5 +15,5 @@
 
     onClick: (e) ->
       id = $(e.target).parents(".single-whisper").attr("data-wid")
-      Show.trigger 'gallery:click', {id:id} if id
+      GalleryApp.trigger 'gallery:click', {id:id} if id
       false

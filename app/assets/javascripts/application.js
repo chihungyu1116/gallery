@@ -16,8 +16,7 @@
 //= require backbone/marionette
 //= require_tree ./apps/config
 //= require apps/main
-//= require_tree ./apps/router
-//= require_tree ./apps/global
-//= require_tree ./apps/footer
-//= require_tree ./apps/header
+//= require apps/router
+//= require_tree ./apps/lightbox
+//= require_tree ./apps/window
 //= require_tree ./apps/gallery
