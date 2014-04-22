@@ -5,17 +5,21 @@
       @ui =
         window: $(window)
         document: $(document)
-      @watchScroll()
+      @watchEvents()
 
-    watchScroll: ->
+    watchEvents: ->
       @ui.window.on 'scroll', _.throttle @onScroll.bind(@), 500
+      @ui.window.on 'click', _.throttle @onClick.bind(@), 500
 
     onScroll: ->
       if @isNearBottom()
-        App.vent.trigger "scrollNearBottom"
+        Window.trigger "scroll:nearBottom"
       if @isBottom()
-        App.vent.trigger "scrollBottom"
+        Window.trigger "scroll:bottom"
         
+    onClick: (e) ->
+      Window.trigger "click", e
+
     isNearBottom: ->
       BOTTOM_OFFSET = 200
       @ui.window.scrollTop() > (@ui.document.height() - @ui.window.height() - BOTTOM_OFFSET)

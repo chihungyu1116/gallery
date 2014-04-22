@@ -1,0 +1,20 @@
+.main-region {
+  margin-top: 60px;
+}
+
+.lightbox {
+  position:fixed;
+  z-index:-1;
+  top:51px;
+  left:0;
+  right:0;
+  bottom:0;
+  background:black;
+  @include opacity(0);
+
+}
+
+.lightbox-open {
+  z-index:1000;
+  @include opacity(1);
+}

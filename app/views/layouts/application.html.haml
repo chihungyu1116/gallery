@@ -7,12 +7,12 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true    
     = csrf_meta_tags
   %body
-    %header{ id:'header-region', class:'header-region' }
-      = render partial: 'share/header'
-    %main{ id:'main-region', class:'main-region' }
+    
+    = render partial: 'share/header'
+    %main{ id:'main-region', class:'container main-region' }
       = yield
-    %footer{ id:'footer-region', class:'footer-region' }
-      = render partial: 'share/footer'
+    = render partial: 'share/footer'
+    = render partial: 'share/lightbox'
 
     = javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'
     %script{ :src=>"//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" }

@@ -14,9 +14,10 @@
 //= require underscore/underscore
 //= require backbone/backbone
 //= require backbone/marionette
-//= require_tree ./app/config
-//= require app/main
-//= require_tree ./app/global
-//= require_tree ./app/footer
-//= require_tree ./app/header
-//= require_tree ./app/main
+//= require_tree ./apps/config
+//= require apps/main
+//= require_tree ./apps/router
+//= require_tree ./apps/global
+//= require_tree ./apps/footer
+//= require_tree ./apps/header
+//= require_tree ./apps/gallery
